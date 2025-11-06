@@ -4,12 +4,13 @@ project:
 book:
   title: "temas"
   author: "Norah Jones"
-  date: "11/5/2025"
+  date: "11/6/2025"
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
     - references.qmd
+    - Tema 04.md
 
 bibliography: references.bib
 
