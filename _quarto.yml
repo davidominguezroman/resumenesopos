@@ -7,9 +7,12 @@ website:
     style: "docked"
     search: true
     contents:
-      - text: "Tema 4"
-        href: ./temas/tema04.qmd
-
+      - text: "Introduction"
+        href: index.qmd
+      - section: "Temas"
+        href: about.qmd
+        contents:
+          - ./temas/tema04.qmd
 format:
   html:
     theme:
@@ -17,6 +20,16 @@ format:
       - brand
     css: styles.css
     toc: true
+  pdf:
+    documentclass: report
+    papersize: a4paper
+    toc: true
+    number-sections: true
+    colorlinks: true  
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
 
 
 
