@@ -12,7 +12,8 @@ website:
       - section: "Temas"
         href: about.qmd
         contents:
-          - ./temas/tema04.qmd
+          - text: "Tema 4"
+            href: ./temas/tema04.qmd
 format:
   html:
     theme:
@@ -21,7 +22,7 @@ format:
     css: styles.css
     toc: true
   pdf:
-    documentclass: report
+    documentclass: scrartcl
     papersize: a4paper
     toc: true
     number-sections: true

@@ -1,12 +1,4 @@
-# Tema 04 {.unnumbered}
-## Cinemática. Elementos para la descripción del movimiento. Movimientos de especial interés. Métodos para el estudios experimental del movimiento. {.unnumbered}
-- [Tema 04](#tema-04)
-  - [Cinemática. Elementos para la descripción del movimiento. Movimientos de especial interés. Métodos para el estudios experimental del movimiento.](#cinemática-elementos-para-la-descripción-del-movimiento-movimientos-de-especial-interés-métodos-para-el-estudios-experimental-del-movimiento)
-    - [Introducción](#introducción)
-    - [Cinemática](#cinemática)
-    - [Elementos para la descripción del movimiento](#elementos-para-la-descripción-del-movimiento)
-    - [Movimientos de especial interés](#movimientos-de-especial-interés)
-    - [Métodos para el estudio experimental del movimiento](#métodos-para-el-estudio-experimental-del-movimiento)
+# Tema 04: Cinemática. Elementos para la descripción del movimiento. Movimientos de especial interés. Métodos para el estudios experimental del movimiento. {.unnumbered}
 
 ### Introducción {.unnumbered}
 
@@ -39,13 +31,42 @@ Diremos que un cuerpo está en movimiento si su posición varía con respecto al
 
 
 
-  \begin{equation}
-  \label{eq:pos}
+$$
     \vec{r}(t) = x(t)\vec{i} + y\vec{j} + z\vec{k} = (x(t),y(t),z(t))
-  \end{equation}
+$$ {#eq-pos}
 
 
-La ecuación \ref{eq:pos} se denomina **ecuación vectorial del movimiento**
+La @eq-pos se denomina **ecuación vectorial del movimiento**. Esta expresión nos demuestra que cualquier movimiento puede representarse como una suma de 3 movimientos rectilíneos, perpendiculares entre sí tal que sus trayectorias quedan definidas en cada uno de los ejes cartesianos $x, y, z$. Esto nos permite reducir cualquier movimiento a la forma matemática más sencilla (el movimiento rectilíneo), lo cual es sumamente importante. La @eq-pos puede escribirse de forma escalar utilizando la @eq-pospar, que define en paramétricas la **trayectoria**:
+
+$$
+\begin{cases}
+  x = x(t)\\
+  y = y(t)\\
+  z = z(t)
+\end{cases}
+$$ {#eq-pospar}
+
+También es posible representar la ecuación de la trayectoria eliminando el parámetro $t$. Por ejemplo, para el siguiente movimiento:
+
+$$
+    \vec{r}(t) = (2t+5)\cdot\vec{i} + t^2\cdot\vec{j} - 3\cdot\vec{k},
+$$
+$$
+    x = 2t+5 \text{, } y = t^2 \text{, } z = -3,
+$$
+
+$$
+    \begin{cases}
+      z + 3 = 0\\
+      x^2 - 10x - 4y + 25 = 0
+    \end{cases}
+$$
+
+Una de las magnitudes escalares más importantes es el *espacio recorrido*, denotado con la letra *$s$*. La ecuación para obtener el espacio recorrido se llama *ley horaria del movimiento* (@eq-hor)
+
+$$
+s = |\vec{r}(t)| = s(t)
+$$ {#eq-hor}
 
 ### Movimientos de especial interés {.unnumbered}
 ### Métodos para el estudio experimental del movimiento {.unnumbered}
