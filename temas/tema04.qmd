@@ -113,7 +113,7 @@ $$
   [v] = [L] \cdot[T]^{-1}
 $$
 
-##### Velocidad media
+#### Velocidad media
 
 Supongamos un móvil P que ocupa la posición A en el instante $t_1$ y la posición en el instante $t_2$. $\vec{r_1}=\vec{OA}$ y $\vec{r_2}=\vec{OB}$. El vector desplazamiento $\vec{AB}$ se podrá calcular como $\vec{AB} = \vec{OB}-\vec{OA}$, ya que $\vec{OA}+\vec{AB}=\vec{OB}$. Por tanto, $\vec{AB}=\vec{r_2}-\vec{r_1}$. La velocidad media entonces será:
 
@@ -138,6 +138,129 @@ $$
   c = |v_m| = \sqrt{(v_m)_x^2+(v_m)_y^2} = \sqrt{(\frac{\Delta x}{\Delta t})^2 + (\frac{\Delta y}{\Delta t})^2}
 $$
 
+Si suponemos el cuerpo como un sólido rígido que se desplaza con movimiento de traslación, el vector desplazamiento en un momento dado tiene el mismo módulo, dirección y sentido, por lo que todos tienen la misma velocidad media.
+
+### Aceleración
+
+La aceleración expresa el cambio de la velocidad en el tiempo. Dado que la velocidad es una magnitud vectorial, la aceleración también lo será. La *aceleración media* queda definida como:
+
+$$
+  \vec{a_m} = \frac{\Delta\vec{v}}{\Delta t} = \frac{\vec{v_2}-\vec{v_1}}{t_2-t_1} = \frac{\vec{v}(t_2)-\vec{v}(t_1)}{t_2-t_1}
+$$ {#eq-am}
+
+La *aceleración instantánea* la definiremos como:
+
+$$
+  \vec{a} = \lim_{\Delta t \to 0} \vec{a_m} = \frac{d\vec{v}}{dt} = \frac{d}{dt}( \frac{d\vec{r}}{dt} ) = \frac{d^2\vec{r}}{dt^2}
+$$ {#eq-a}
+
+$\vec{a}$ coincide con el ritmo de variación temporal de la velocidad en un instante dado. De igual modo que para la velocidad, la aceleración puede definirse en base a sus *componentes cartesianas* o sus *componentes intrínsecas*.
+
+#### Componentes cartesianas
+
+De la @eq-a se pueden obtener inmediatamente las componentes cartesianas:
+
+$$
+  \vec{a} = a_x\vec{i} + a_y\vec{j} + a_z\vec{k} = \frac{dv_x}{dt}\vec{i} + \frac{dv_y}{dt}\vec{j} + \frac{dv_z}{dt}\vec{k} = \frac{d^2x(t)}{dt^2}\vec{i} + \frac{d^2y(t)}{dt^2}\vec{j} + \frac{d^2y(t)}{dt^2}\vec{k}
+$$ {#eq-a-carte}
+
+Si trasladamos el origen del vector velocidad al origen de coordenadas, el extremo describirá una curva conocida como \emph{hodógrafa} del movimiento. Observando la posición de la hodógrafa respecto a la trayectoria y la de la aceleración respecto a la hodógrafa, es fácil concluir que el vector aceleración estará situado en el plano que contiene a la hodógrafa y al origen de coordenadas.
+
+#### Componentes intrínsecas
+
+Estas componentes son el resultado de expresar el vector en un referencial situado sobre la trayectoria, con dos componentes: una perpendicular a la trayectoria (normal $\vec{n}$) y otra tangente (tangencial $\vec{\tau}$).
+
+##### Aceleración tangencial {.unnumbered}
+
+La aceleración tangencial es un vector con los siguientes atributos:
+- *Módulo*: es igual a la rapidez de cambio del módulo velocidad.
+- *Dirección*: es tangente a la trayectoria en todo punto.
+- *Sentido*: es el mismo que el del movimiento si el módulo velocidad aumenta y contrario si disminuye.
+
+##### Aceleración normal {.unnumbered}
+
+Esta componente aparece si el movimiento es curvilíneo, así que se genera por los cambios en la dirección de la velocidad, con independencia de lo que le ocurra al módulo. Es perpendicular a la dirección tangente y a la trayectoria. El plano determinado por ambas componentes se denomina *plano osculador*, y su posición varía con el tiempo
+
+Expresando $\vec{v}=v\vec{\tau}$ es fácil obtener las componentes:
+
+$$
+  \vec{a} = \frac{d\vec{v}}{dt} = \frac{d(v\vec{\tau})}{dt} = \frac{dv}{dt}\cdot\tau + v\cdot\frac{d\vec{\tau}}{dt}
+$$
+
+El primer sumando corresponde con la *componente tangencial* y el segundo sumando corresponde con la *componente normal*.
+
+Calcular la aceleración tangencial es fácil sabiendo la velocidad.
+
+La aceleración normal exige conocer cómo evoluciona el vector unitario tangente:
+
+$$
+  \frac{d\vec{\tau}}{dt} = \frac{d\vec{\tau}}{ds}\cdot\frac{ds}{dt}
+$$
+
+Realizando un estudio detallado se concluye que la componente *normal* vale:
+
+$$
+  a_n = \frac{v^2}{\rho}
+$$ {#eq-a-normal}
+
+El módulo de la aceleración es:
+
+$$
+  a = \sqrt{a_x^2+a_y^2} = \sqrt{a_t^2+a_n^2}
+$$ {#eq-a-modulo}
+
+En el S.I. la aceleración tiene unidades de $m/s^2$ y su ecuación dimensional es $[a] = [L]\cdot[T]^2$
+
+|    $a_n+a_t=0$   |       $a_n=0/a_t=0$      |         Movimiento rectilíneo uniforme (MRU)         |
+|:----------------:|:------------------------:|:----------------------------------------------------:|
+|   $a_n+a_t=cte$  |      $a_n=0/a_t=cte$     | Movimiento rectilíneo uniformemente acelerado (MRUA) |
+|   $a_n+a_t=cte$  |     $a_n=0/a_t\neq 0$    |         Movimiento rectilíneo acelerado (MRA)        |
+|   $a_n+a_t=cte$  |     $a_n=cte 0/a_t=0$    |          Movimiento circular uniforme (MCU)          |
+|   $a_n+a_t=cte$  |   $a_n = cte/ a_t= cte$  |  Movimiento circular uniformemente acelerado (MCUA)  |
+| $a_n + a_t =cte$ | $a_n\neq 0 / a_t \neq 0$ | Movimiento curvilíneo acelerado (MCA)                |
+
+
+| Magnitud               | Movimiento rectilíneo         | Movimiento circular                                | Relación entre magnitudes |
+|------------------------|-------------------------------|----------------------------------------------------|---------------------------|
+| Distancia              | $e$                           | $\theta$                                           | $s=\theta\cdot R$         |
+| Velocidad              | $v=de/dt$                     | $\omega=d\theta/dt$                                | $v=\omega\cdot R$         |
+| Aceleración tangencial | $a_t=dv/dt$                   | $\alpha=d\omega/dt$                                | $a_t=\alpha\cdot R$       |
+| Aceleración normal     | $a_n=v^2/R$                   | $a_n=\omega^2\cdot R$                              |                           |
+| Posición               | $s=s_0+v_0 t+\frac{1}{2}at^2$ | $\theta=\theta_0+\omega_0 t+\frac{1}{2}\alpha t^2$ | $s=\theta\cdot R$         |
+| Velocidad              | $v=v_0+at$                    | $\omega=\omega_0+\alpha t$                         | $v=\omega \cdot R$        |
 
 ## Movimientos de especial interés 
+
+Como hemos visto, en todo movimiento hay una relación entre las magnitudes posición, velocidad y aceleración, establecidas mediante el operador derivada. También podemos realizar el camino contrario: conociendo la aceleración y las condiciones de contorno, podemos obtener la velocidad y la posición
+
+### Movimientos rectilíneos
+
+Estos movimientos se caracterizan porque la dirección del vector velocidad no cambia, es decir, $a_n=0$. Dado que la trayectoria es rectilínea, el movimiento puede tratarse únicamente con la distancia al origen, por lo que mayormente se reduce a un tratamiento escalar.
+
+#### Movimiento rectilíneo uniforme (MRU) {.unnumbered}
+
+Es el movimiento de un punto cuyo vector velocidad mantiene el mismo módulo, dirección y sentido. Se definen por la condición $\vec{v}=cte$. Por tanto, integrando $ds=v\cdot dt$:
+
+$$
+s=s_0 + v(t-t_0) = s_0 + v\Delta t
+$$ {#eq-mru}
+
+Si $t_0$, entonces $s=s_0+vt$.
+
+```{python}
+#| label: fig-v
+#| fig-cap: "v vs t en un MRU"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.arange(0, 5, 0.01)
+v = 5 + 0*t
+plt.plot(t, v)
+plt.xlabel('t')
+plt.ylabel('v')
+plt.grid(True)
+plt.show()
+```
+
 ## Métodos para el estudio experimental del movimiento 

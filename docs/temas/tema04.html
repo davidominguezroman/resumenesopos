@@ -171,6 +171,7 @@ window.Quarto = {
   <li><a href="#elementos-para-la-descripción-del-movimiento" id="toc-elementos-para-la-descripción-del-movimiento" class="nav-link" data-scroll-target="#elementos-para-la-descripción-del-movimiento">Elementos para la descripción del movimiento</a>
   <ul class="collapse">
   <li><a href="#velocidad" id="toc-velocidad" class="nav-link" data-scroll-target="#velocidad">Velocidad</a></li>
+  <li><a href="#aceleración" id="toc-aceleración" class="nav-link" data-scroll-target="#aceleración">Aceleración</a></li>
   </ul></li>
   <li><a href="#movimientos-de-especial-interés" id="toc-movimientos-de-especial-interés" class="nav-link" data-scroll-target="#movimientos-de-especial-interés">Movimientos de especial interés</a></li>
   <li><a href="#métodos-para-el-estudio-experimental-del-movimiento" id="toc-métodos-para-el-estudio-experimental-del-movimiento" class="nav-link" data-scroll-target="#métodos-para-el-estudio-experimental-del-movimiento">Métodos para el estudio experimental del movimiento</a></li>
@@ -261,8 +262,8 @@ s = |\vec{r}(t)| = s(t)
 <p><span class="math display">\[
   [v] = [L] \cdot[T]^{-1}
 \]</span></p>
-<section id="velocidad-media" class="level5">
-<h5 class="anchored" data-anchor-id="velocidad-media">Velocidad media</h5>
+<section id="velocidad-media" class="level4">
+<h4 class="anchored" data-anchor-id="velocidad-media">Velocidad media</h4>
 <p>Supongamos un móvil P que ocupa la posición A en el instante <span class="math inline">\(t_1\)</span> y la posición en el instante <span class="math inline">\(t_2\)</span>. <span class="math inline">\(\vec{r_1}=\vec{OA}\)</span> y <span class="math inline">\(\vec{r_2}=\vec{OB}\)</span>. El vector desplazamiento <span class="math inline">\(\vec{AB}\)</span> se podrá calcular como <span class="math inline">\(\vec{AB} = \vec{OB}-\vec{OA}\)</span>, ya que <span class="math inline">\(\vec{OA}+\vec{AB}=\vec{OB}\)</span>. Por tanto, <span class="math inline">\(\vec{AB}=\vec{r_2}-\vec{r_1}\)</span>. La velocidad media entonces será:</p>
 <p><span class="math display">\[
   \vec{v_m}=\frac{\vec{AB}}{t_2-t_1}=\frac{\vec{r_2}-\vec{r_1}}{t_2-t_1}=\frac{\Delta\vec{r}}{\Delta t}
@@ -278,6 +279,203 @@ s = |\vec{r}(t)| = s(t)
 <p><span class="math display">\[
   c = |v_m| = \sqrt{(v_m)_x^2+(v_m)_y^2} = \sqrt{(\frac{\Delta x}{\Delta t})^2 + (\frac{\Delta y}{\Delta t})^2}
 \]</span></p>
+<p>Si suponemos el cuerpo como un sólido rígido que se desplaza con movimiento de traslación, el vector desplazamiento en un momento dado tiene el mismo módulo, dirección y sentido, por lo que todos tienen la misma velocidad media.</p>
+</section>
+</section>
+<section id="aceleración" class="level3">
+<h3 class="anchored" data-anchor-id="aceleración">Aceleración</h3>
+<p>La aceleración expresa el cambio de la velocidad en el tiempo. Dado que la velocidad es una magnitud vectorial, la aceleración también lo será. La <em>aceleración media</em> queda definida como:</p>
+<p><span id="eq-am"><span class="math display">\[
+  \vec{a_m} = \frac{\Delta\vec{v}}{\Delta t} = \frac{\vec{v_2}-\vec{v_1}}{t_2-t_1} = \frac{\vec{v}(t_2)-\vec{v}(t_1)}{t_2-t_1}
+\tag{9}\]</span></span></p>
+<p>La <em>aceleración instantánea</em> la definiremos como:</p>
+<p><span id="eq-a"><span class="math display">\[
+  \vec{a} = \lim_{\Delta t \to 0} \vec{a_m} = \frac{d\vec{v}}{dt} = \frac{d}{dt}( \frac{d\vec{r}}{dt} ) = \frac{d^2\vec{r}}{dt^2}
+\tag{10}\]</span></span></p>
+<p><span class="math inline">\(\vec{a}\)</span> coincide con el ritmo de variación temporal de la velocidad en un instante dado. De igual modo que para la velocidad, la aceleración puede definirse en base a sus <em>componentes cartesianas</em> o sus <em>componentes intrínsecas</em>.</p>
+<section id="componentes-cartesianas" class="level4">
+<h4 class="anchored" data-anchor-id="componentes-cartesianas">Componentes cartesianas</h4>
+<p>De la <a href="#eq-a" class="quarto-xref">Equation&nbsp;10</a> se pueden obtener inmediatamente las componentes cartesianas:</p>
+<p><span id="eq-a-carte"><span class="math display">\[
+  \vec{a} = a_x\vec{i} + a_y\vec{j} + a_z\vec{k} = \frac{dv_x}{dt}\vec{i} + \frac{dv_y}{dt}\vec{j} + \frac{dv_z}{dt}\vec{k} = \frac{d^2x(t)}{dt^2}\vec{i} + \frac{d^2y(t)}{dt^2}\vec{j} + \frac{d^2y(t)}{dt^2}\vec{k}
+\tag{11}\]</span></span></p>
+<p>Si trasladamos el origen del vector velocidad al origen de coordenadas, el extremo describirá una curva conocida como del movimiento. Observando la posición de la hodógrafa respecto a la trayectoria y la de la aceleración respecto a la hodógrafa, es fácil concluir que el vector aceleración estará situado en el plano que contiene a la hodógrafa y al origen de coordenadas.</p>
+</section>
+<section id="componentes-intrínsecas" class="level4">
+<h4 class="anchored" data-anchor-id="componentes-intrínsecas">Componentes intrínsecas</h4>
+<p>Estas componentes son el resultado de expresar el vector en un referencial situado sobre la trayectoria, con dos componentes: una perpendicular a la trayectoria (normal <span class="math inline">\(\vec{n}\)</span>) y otra tangente (tangencial <span class="math inline">\(\vec{\tau}\)</span>).</p>
+<section id="aceleración-tangencial" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="aceleración-tangencial">Aceleración tangencial</h5>
+<p>La aceleración tangencial es un vector con los siguientes atributos: - <em>Módulo</em>: es igual a la rapidez de cambio del módulo velocidad. - <em>Dirección</em>: es tangente a la trayectoria en todo punto. - <em>Sentido</em>: es el mismo que el del movimiento si el módulo velocidad aumenta y contrario si disminuye.</p>
+</section>
+<section id="aceleración-normal" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="aceleración-normal">Aceleración normal</h5>
+<p>Esta componente aparece si el movimiento es curvilíneo, así que se genera por los cambios en la dirección de la velocidad, con independencia de lo que le ocurra al módulo. Es perpendicular a la dirección tangente y a la trayectoria. El plano determinado por ambas componentes se denomina <em>plano osculador</em>, y su posición varía con el tiempo</p>
+<p>Expresando <span class="math inline">\(\vec{v}=v\vec{\tau}\)</span> es fácil obtener las componentes:</p>
+<p><span class="math display">\[
+  \vec{a} = \frac{d\vec{v}}{dt} = \frac{d(v\vec{\tau})}{dt} = \frac{dv}{dt}\cdot\tau + v\cdot\frac{d\vec{\tau}}{dt}
+\]</span></p>
+<p>El primer sumando corresponde con la <em>componente tangencial</em> y el segundo sumando corresponde con la <em>componente normal</em>.</p>
+<p>Calcular la aceleración tangencial es fácil sabiendo la velocidad.</p>
+<p>La aceleración normal exige conocer cómo evoluciona el vector unitario tangente:</p>
+<p><span class="math display">\[
+  \frac{d\vec{\tau}}{dt} = \frac{d\vec{\tau}}{ds}\cdot\frac{ds}{dt}
+\]</span></p>
+<p>Realizando un estudio detallado se concluye que la componente <em>normal</em> vale:</p>
+<p><span id="eq-a-normal"><span class="math display">\[
+  a_n = \frac{v^2}{\rho}
+\tag{12}\]</span></span></p>
+<p>El módulo de la aceleración es:</p>
+<p><span id="eq-a-modulo"><span class="math display">\[
+  a = \sqrt{a_x^2+a_y^2} = \sqrt{a_t^2+a_n^2}
+\tag{13}\]</span></span></p>
+<p>En el S.I. la aceleración tiene unidades de <span class="math inline">\(m/s^2\)</span> y su ecuación dimensional es <span class="math inline">\([a] = [L]\cdot[T]^2\)</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 26%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(a_n+a_t=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(a_n=0/a_t=0\)</span></th>
+<th style="text-align: center;">Movimiento rectilíneo uniforme (MRU)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n+a_t=cte\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n=0/a_t=cte\)</span></td>
+<td style="text-align: center;">Movimiento rectilíneo uniformemente acelerado (MRUA)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:—————-:</td>
+<td style="text-align: center;">:————————:</td>
+<td style="text-align: center;">:—————————————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n+a_t=cte\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n=0/a_t\neq 0\)</span></td>
+<td style="text-align: center;">Movimiento rectilíneo acelerado (MRA)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:—————-:</td>
+<td style="text-align: center;">:————————:</td>
+<td style="text-align: center;">:—————————————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n+a_t=cte\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n=cte 0/a_t=0\)</span></td>
+<td style="text-align: center;">Movimiento circular uniforme (MCU)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:—————-:</td>
+<td style="text-align: center;">:————————:</td>
+<td style="text-align: center;">:—————————————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n+a_t=cte\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n = cte/ a_t= cte\)</span></td>
+<td style="text-align: center;">Movimiento circular uniformemente acelerado (MCUA)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:—————-:</td>
+<td style="text-align: center;">:————————:</td>
+<td style="text-align: center;">:—————————————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n + a_t =cte\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n\neq 0 / a_t \neq 0\)</span></td>
+<td style="text-align: center;">Movimiento curvilíneo acelerado (MCA)</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Magnitud</th>
+<th style="text-align: center;">Movimiento rectilíneo</th>
+<th style="text-align: center;">Movimiento circular</th>
+<th style="text-align: center;">Relación entre magnitudes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Distancia</td>
+<td style="text-align: center;"><span class="math inline">\(e\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s=\theta\cdot R\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:———————-:</td>
+<td style="text-align: center;">:—————————–:</td>
+<td style="text-align: center;">:————————————————–:</td>
+<td style="text-align: center;">:————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Velocidad</td>
+<td style="text-align: center;"><span class="math inline">\(v=de/dt\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\omega=d\theta/dt\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(v=\omega\cdot R\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:———————-:</td>
+<td style="text-align: center;">:—————————–:</td>
+<td style="text-align: center;">:————————————————–:</td>
+<td style="text-align: center;">:————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Aceleración tangencial</td>
+<td style="text-align: center;"><span class="math inline">\(a_t=dv/dt\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=d\omega/dt\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_t=\alpha\cdot R\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:———————-:</td>
+<td style="text-align: center;">:—————————–:</td>
+<td style="text-align: center;">:————————————————–:</td>
+<td style="text-align: center;">:————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Aceleración normal</td>
+<td style="text-align: center;"><span class="math inline">\(a_n=v^2/R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a_n=\omega^2\cdot R\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:———————-:</td>
+<td style="text-align: center;">:—————————–:</td>
+<td style="text-align: center;">:————————————————–:</td>
+<td style="text-align: center;">:————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Posición</td>
+<td style="text-align: center;"><span class="math inline">\(s=s_0+v_0 t+\frac{1}{2}at^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\theta=\theta_0+\omega_0 t+\frac{1}{2}\alpha t^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s=\theta\cdot R\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">:———————-:</td>
+<td style="text-align: center;">:—————————–:</td>
+<td style="text-align: center;">:————————————————–:</td>
+<td style="text-align: center;">:————————-:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Velocidad</td>
+<td style="text-align: center;"><span class="math inline">\(v=v_0+at\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\omega=\omega_0+\alpha t\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(v=\omega \cdot R\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 </section>
