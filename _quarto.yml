@@ -1,7 +1,8 @@
 project:
   type: website
   output-dir: docs
-
+execute:
+  echo: false
 website:
   sidebar:
     style: "docked"
