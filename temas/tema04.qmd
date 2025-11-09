@@ -248,8 +248,8 @@ $$ {#eq-mru}
 Si $t_0$, entonces $s=s_0+vt$.
 
 ```{python}
-#| label: fig-v
-#| fig-cap: "v vs t en un MRU"
+#| label: fig-MRU
+#| fig-cap: "s y v vs t en un MRU"
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -264,5 +264,88 @@ ax2.plot(t, s)
 ax1.set(xlabel='t', ylabel='v')
 ax2.set(xlabel='t', ylabel='s')
 ```
+
+#### Movimiento rectilíneo uniformemente acelerado (MRUA)
+
+En este movimiento, $\vec{a_n}=0$ porque es rectilíneo, por lo que $\vec{a}=\vec{a_t}$. Como es uniformemente acelerado, la aceleración será constante durante todo el recorrido $\vec{a}=cte$.
+
+Teniendo en cuenta que $|\vec{a}|=|\vec{a_t}|=\frac{dv}{dt}$, podemos integrar desde $t_0=0$ a $t$, obteniendo así la ecuación de la velocidad:
+
+$$
+v = v_0 + at
+$$ {#eq-velmrua}
+
+Integrando $ds = v\cdot dt$, obtendremos la ecuación que permite calcular el espacio recorrido:
+
+$$
+s = s_0 + v_0t + \frac{1}{2}at^2
+$$ {#eq-esmrua}
+
+Con la @eq-velmrua y la @eq-esmrua podemos obtener la ecuación independiente del tiempo:
+
+$$
+v^2 - v_0^2 = 2a(s-s_0) = 2a\Delta s
+$$ {#eq-mruaindept}
+
+```{python}
+#| label: fig-MRUA
+#| fig-cap: "s y v vs t en un MRUA"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.arange(0, 5, 0.01)
+a = 1
+v0 = 0
+s0 = 0
+v = v0 + a*t
+s = s0 + v0*t + 0.5 * a * (t ** 2)
+fig, (ax1, ax2) = plt.subplots(1, 2)
+fig.suptitle('Gráficas del MRUA')
+ax1.plot(t, v)
+ax2.plot(t, s)
+ax1.set(xlabel='t', ylabel='v')
+ax2.set(xlabel='t', ylabel='s')
+```
+
+### Composición de movimientos rectilíneos
+
+En muchos casos, el movimiento de un cuerpo debe descomponerse en movimientos más sencillos para poder analizarlo. En estos casos, se toma como base la *ley clásica de velocidades* $\vec{v}(t) = \vec{v_1}(t) + \vec{v_2}(t)$.
+
+#### Movimiento de proyectiles
+
+En este tipo de movimientos, es posible describir este como
+la composición de dos movimientos, un MRU y un MRUA, siempre despreciando el rozamiento con el aire. El primero es consecuencia del mismo lanzamiento y el segundo es consecuencia de la acción gravitatoria.
+
+En función del ángulo que forma el vector velocidad con la horizontal se tienen dos movimientos: *tiro horizontal* y *tiro oblícuo*.
+
+##### Tiro horizontal {.unnumbered}
+
+En este movimiento, tendremos un MRU en el eje horizontal, que llamaremos X, y un MRUA en el eje vertical, que llamaremos Y. El vector velocidad inicial sólo tendrá componente horizontal, es decir $\vec{v_0} = v_0\cdot \vec{i}$. En estos casos, tomaremos la altura de lanzamiento como $y=0$, la posición horizontal desde donde se lanza $x_0=0$, la dirección vertical ascendente como positiva y el sentido del vector velocidad horizontal como positivo. La aceleración de la gravedad $g = -9,81 m/s^2$ se tratará como positiva en el desarrollo de las ecuaciones, ya que el signo está en el propio valor de $g$. De esta forma se generan las siguientes ecuaciones para cada eje:
+
+  - Eje X: $x = v_0\cdot t$
+  - Eje Y: $y = 1/2\cdot gt^2$ 
+    - $v_y = g\cdot t$
+
+Utilizando las ecuaciones de la posición de los dos ejes obtenemos:
+
+$$
+y = \frac{g}{2v_0^2}x^2
+$$
+
+Es la *ecuación de la trayectoria* correspondiente a una parábola con vértice en el (0,0). Aplicando la ley de adición de velocidades, la ecuación vectorial de la velocidad será $\vec{v}(t) = v_{0x}\cdot\vec{i} - gt\cdot\vec{j}$.
+
+Siendo su módulo $v(t) = \sqrt{v_{0x}^2+g^2t^2}$.
+
+Su dirección vendrá determinada por: $\theta(t) = \arctan{\frac{-gt}{v_{0x}}}$.
+
+Derivando la velocidad obtenemos que $\vec{a}(t) = -g\cdot\vec{j}$.
+
+::: {.callout-note}
+Revisar este planteamiento matemático porque no cuadra.
+:::
+
+
+
 
 ## Métodos para el estudio experimental del movimiento 

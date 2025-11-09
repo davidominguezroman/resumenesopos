@@ -174,6 +174,7 @@ window.Quarto = {
   <li><a href="#movimientos-de-especial-interés" id="toc-movimientos-de-especial-interés" class="nav-link" data-scroll-target="#movimientos-de-especial-interés">Movimientos de especial interés</a>
   <ul class="collapse">
   <li><a href="#movimientos-rectilíneos" id="toc-movimientos-rectilíneos" class="nav-link" data-scroll-target="#movimientos-rectilíneos">Movimientos rectilíneos</a></li>
+  <li><a href="#composición-de-movimientos-rectilíneos" id="toc-composición-de-movimientos-rectilíneos" class="nav-link" data-scroll-target="#composición-de-movimientos-rectilíneos">Composición de movimientos rectilíneos</a></li>
   </ul></li>
   <li><a href="#métodos-para-el-estudio-experimental-del-movimiento" id="toc-métodos-para-el-estudio-experimental-del-movimiento" class="nav-link" data-scroll-target="#métodos-para-el-estudio-experimental-del-movimiento">Métodos para el estudio experimental del movimiento</a></li>
   </ul>
@@ -456,20 +457,91 @@ s = |\vec{r}(t)| = s(t)
 s=s_0 + v(t-t_0) = s_0 + v\Delta t
 \tag{14}\]</span></span></p>
 <p>Si <span class="math inline">\(t_0\)</span>, entonces <span class="math inline">\(s=s_0+vt\)</span>.</p>
-<div id="cell-fig-v" class="cell" data-execution_count="1">
+<div id="cell-fig-MRU" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<div id="fig-v" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-mru" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-v-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="tema04_files/figure-html/fig-v-output-1.png" width="589" height="477" class="figure-img">
+<div aria-describedby="fig-mru-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="tema04_files/figure-html/fig-mru-output-1.png" width="589" height="477" class="figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-v-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: v vs t en un MRU
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mru-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: s y v vs t en un MRU
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="movimiento-rectilíneo-uniformemente-acelerado-mrua" class="level4">
+<h4 class="anchored" data-anchor-id="movimiento-rectilíneo-uniformemente-acelerado-mrua">Movimiento rectilíneo uniformemente acelerado (MRUA)</h4>
+<p>En este movimiento, <span class="math inline">\(\vec{a_n}=0\)</span> porque es rectilíneo, por lo que <span class="math inline">\(\vec{a}=\vec{a_t}\)</span>. Como es uniformemente acelerado, la aceleración será constante durante todo el recorrido <span class="math inline">\(\vec{a}=cte\)</span>.</p>
+<p>Teniendo en cuenta que <span class="math inline">\(|\vec{a}|=|\vec{a_t}|=\frac{dv}{dt}\)</span>, podemos integrar desde <span class="math inline">\(t_0=0\)</span> a <span class="math inline">\(t\)</span>, obteniendo así la ecuación de la velocidad:</p>
+<p><span id="eq-velmrua"><span class="math display">\[
+v = v_0 + at
+\tag{15}\]</span></span></p>
+<p>Integrando <span class="math inline">\(ds = v\cdot dt\)</span>, obtendremos la ecuación que permite calcular el espacio recorrido:</p>
+<p><span id="eq-esmrua"><span class="math display">\[
+s = s_0 + v_0t + \frac{1}{2}at^2
+\tag{16}\]</span></span></p>
+<p>Con la <a href="#eq-velmrua" class="quarto-xref">Equation&nbsp;15</a> y la <a href="#eq-esmrua" class="quarto-xref">Equation&nbsp;16</a> podemos obtener la ecuación independiente del tiempo:</p>
+<p><span id="eq-mruaindept"><span class="math display">\[
+v^2 - v_0^2 = 2a(s-s_0) = 2a\Delta s
+\tag{17}\]</span></span></p>
+<div id="cell-fig-MRUA" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-mrua" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mrua-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="tema04_files/figure-html/fig-mrua-output-1.png" width="576" height="477" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mrua-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: s y v vs t en un MRUA
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="composición-de-movimientos-rectilíneos" class="level3">
+<h3 class="anchored" data-anchor-id="composición-de-movimientos-rectilíneos">Composición de movimientos rectilíneos</h3>
+<p>En muchos casos, el movimiento de un cuerpo debe descomponerse en movimientos más sencillos para poder analizarlo. En estos casos, se toma como base la <em>ley clásica de velocidades</em> <span class="math inline">\(\vec{v}(t) = \vec{v_1}(t) + \vec{v_2}(t)\)</span>.</p>
+<section id="movimiento-de-proyectiles" class="level4">
+<h4 class="anchored" data-anchor-id="movimiento-de-proyectiles">Movimiento de proyectiles</h4>
+<p>En este tipo de movimientos, es posible describir este como la composición de dos movimientos, un MRU y un MRUA, siempre despreciando el rozamiento con el aire. El primero es consecuencia del mismo lanzamiento y el segundo es consecuencia de la acción gravitatoria.</p>
+<p>En función del ángulo que forma el vector velocidad con la horizontal se tienen dos movimientos: <em>tiro horizontal</em> y <em>tiro oblícuo</em>.</p>
+<section id="tiro-horizontal" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="tiro-horizontal">Tiro horizontal</h5>
+<p>En este movimiento, tendremos un MRU en el eje horizontal, que llamaremos X, y un MRUA en el eje vertical, que llamaremos Y. El vector velocidad inicial sólo tendrá componente horizontal, es decir <span class="math inline">\(\vec{v_0} = v_0\cdot \vec{i}\)</span>. En estos casos, tomaremos la altura de lanzamiento como <span class="math inline">\(y=0\)</span>, la posición horizontal desde donde se lanza <span class="math inline">\(x_0=0\)</span>, la dirección vertical ascendente como positiva y el sentido del vector velocidad horizontal como positivo. La aceleración de la gravedad <span class="math inline">\(g = -9,81 m/s^2\)</span> se tratará como positiva en el desarrollo de las ecuaciones, ya que el signo está en el propio valor de <span class="math inline">\(g\)</span>. De esta forma se generan las siguientes ecuaciones para cada eje:</p>
+<ul>
+<li>Eje X: <span class="math inline">\(x = v_0\cdot t\)</span></li>
+<li>Eje Y: <span class="math inline">\(y = 1/2\cdot gt^2\)</span>
+<ul>
+<li><span class="math inline">\(v_y = g\cdot t\)</span></li>
+</ul></li>
+</ul>
+<p>Utilizando las ecuaciones de la posición de los dos ejes obtenemos:</p>
+<p><span class="math display">\[
+y = \frac{g}{2v_0^2}x^2
+\]</span></p>
+<p>Es la <em>ecuación de la trayectoria</em> correspondiente a una parábola con vértice en el (0,0). Aplicando la ley de adición de velocidades, la ecuación vectorial de la velocidad será <span class="math inline">\(\vec{v}(t) = v_{0x}\cdot\vec{i} - gt\cdot\vec{j}\)</span>.</p>
+<p>Siendo su módulo <span class="math inline">\(v(t) = \sqrt{v_{0x}^2+g^2t^2}\)</span>.</p>
+<p>Su dirección vendrá determinada por: <span class="math inline">\(\theta(t) = \arctan{\frac{-gt}{v_{0x}}}\)</span>.</p>
+<p>Derivando la velocidad obtenemos que <span class="math inline">\(\vec{a}(t) = -g\cdot\vec{j}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Revisar este planteamiento matemático porque no cuadra.</p>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
