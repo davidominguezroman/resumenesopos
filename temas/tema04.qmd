@@ -321,31 +321,383 @@ En función del ángulo que forma el vector velocidad con la horizontal se tiene
 
 ##### Tiro horizontal {.unnumbered}
 
-En este movimiento, tendremos un MRU en el eje horizontal, que llamaremos X, y un MRUA en el eje vertical, que llamaremos Y. El vector velocidad inicial sólo tendrá componente horizontal, es decir $\vec{v_0} = v_0\cdot \vec{i}$. En estos casos, tomaremos la altura de lanzamiento como $y=0$, la posición horizontal desde donde se lanza $x_0=0$, la dirección vertical ascendente como positiva y el sentido del vector velocidad horizontal como positivo. La aceleración de la gravedad $g = -9,81 m/s^2$ se tratará como positiva en el desarrollo de las ecuaciones, ya que el signo está en el propio valor de $g$. De esta forma se generan las siguientes ecuaciones para cada eje:
+En este movimiento, tendremos un MRU en el eje horizontal, que llamaremos X, y un MRUA en el eje vertical, que llamaremos Y. El vector velocidad inicial sólo tendrá componente horizontal, es decir $\vec{v_0} = v_0\cdot \vec{i}$. En estos casos, tomaremos la altura de lanzamiento como $y=y_0$, la posición horizontal desde donde se lanza $x_0=0$, la velocidad inicial $\vec{v_0} = v_x\cdot \vec{i}$, la dirección vertical ascendente como positiva y el sentido del vector velocidad horizontal como positivo. La aceleración de la gravedad $\vec{g} = -9,81\cdot \vec{j}\text{ }(m/s^2)$ se tratará como positiva en el desarrollo de las ecuaciones, ya que el signo está en el propio valor de $g$. De esta forma se generan las siguientes ecuaciones para cada eje:
 
-  - Eje X: $x = v_0\cdot t$
-  - Eje Y: $y = 1/2\cdot gt^2$ 
+  - Eje X: $x = v_x\cdot t$
+  - Eje Y: $y = y_0 1/2\cdot gt^2$ 
     - $v_y = g\cdot t$
 
 Utilizando las ecuaciones de la posición de los dos ejes obtenemos:
 
 $$
-y = \frac{g}{2v_0^2}x^2
+y = \frac{g}{2v_x^2}x^2 + y_0
 $$
 
-Es la *ecuación de la trayectoria* correspondiente a una parábola con vértice en el (0,0). Aplicando la ley de adición de velocidades, la ecuación vectorial de la velocidad será $\vec{v}(t) = v_{0x}\cdot\vec{i} - gt\cdot\vec{j}$.
+Es la *ecuación de la trayectoria* correspondiente a una parábola con vértice en el (0,0). Aplicando la ley de adición de velocidades, la ecuación vectorial de la velocidad será $\vec{v}(t) = v_{0x}\cdot\vec{i} + gt\cdot\vec{j}$.
 
 Siendo su módulo $v(t) = \sqrt{v_{0x}^2+g^2t^2}$.
 
-Su dirección vendrá determinada por: $\theta(t) = \arctan{\frac{-gt}{v_{0x}}}$.
+Su dirección vendrá determinada por: $\theta(t) = \arctan{\frac{gt}{v_{0x}}}$.
 
-Derivando la velocidad obtenemos que $\vec{a}(t) = -g\cdot\vec{j}$.
+Derivando la velocidad obtenemos que $\vec{a}(t) = g\cdot\vec{j}$.
 
-::: {.callout-note}
-Revisar este planteamiento matemático porque no cuadra.
-:::
+```{python}
+#| label: fig-horizontal
+#| fig-cap: "gráficas tiro horizontal"
 
+import numpy as np
+import matplotlib.pyplot as plt
 
+t = np.arange(0, 5, 0.01)
+g = -9.81
+vx = 1 + 0 * t
+x0 = 0
+y0 = 2
+y = y0 + 0.5 * g * (t ** 2)
+vy = g * t
+x = vx * t
+fig, (ax1, axy) = plt.subplots(1, 2)
+fig.suptitle('Gráficas del tiro horizontal')
+ax1.plot(t, vy)
+ax1.plot(t, vx)
+axy.plot(x, y)
+ax1.set(xlabel='t', ylabel='amarillo: vx azul: vy')
+axy.set(xlabel='x', ylabel='y')
+```
 
+##### Tiro oblicuo
+
+En este caso, la velocidad inicial forma un ángulo $\theta$ con la horizontal, pero sigue siendo una combinación de un MRU en el eje horizontal y un MRUA en el vertical ($\vec{g} = -9.81\cdot\vec{j} \text{ }(m/s^2)$):
+
+$$
+\text{Eje x: } x=x_0 + v_0cos(\theta)t
+$$
+$$
+v_x = v_0cos(\theta)
+$$
+$$
+a_x = 0
+$$
+$$
+\text{Eje y: } y= y_0 + v_0\sin{\theta} t + \frac{1}{2}gt^2 
+$$
+$$
+v_y = v_0\sin{\alpha} + gt
+$$
+$$
+a_y = g
+$$
+
+Eliminando $t$ de las ecuaciones de las posiciones en los ejes obtenemos:
+
+$$
+\Delta{y} = \Delta{x}\tan{\theta} + \frac{g}{2v_0^2\cos^2{\theta}}(\Delta{x})^2
+$$ {#eq-paroblicuo}
+
+El vector velocidad quedaría:
+
+$$
+\vec{v}(t) = v_0\cdot\cos{\alpha}\cdot\vec{i} + (v_0\cdot\sin{\theta} + gt)\cdot\vec{j}
+$$
+
+El tiempo de vuelo, $\tau$ coincidirá con el momento en el que $y=0$:
+
+$$
+0=y_0+v_0\sin{\theta}t + \frac{1}{2}gt^2 \rightarrow \frac{1}{2}gt^2 = -v_0\sin{\theta}t \rightarrow \tau = - \frac{2v_0\sin{\theta}}{g}
+$$
+
+La altura máxima, aquella en la que la componente vertical de la velocidad se anula y corresponde con $t=\tau /2$, es:
+
+$$
+y(t=\tau /2) = y_{max} = y_0 - \frac{v_0^2\cdot\sin^2{\theta}}{2g}
+$$
+
+El alcance horizontal será el desplazamiento en el eje x cuando $t=\tau$:
+
+$$
+\Delta{x} = -\frac{v_0^2\cdot\sin{2\theta}}{g} \rightarrow \Delta{x_{max}} = -\frac{v_0^2}{g}
+$$
+
+### Movimiento circular
+
+Se define como el de un punto móvil cuya trayectoria es una circunferencia. Es un tipo particular de movimiento rectilíneo. En este movimiento existe una aceleración normal no nula durante todo el movimiento. El movimiento circular se carazteriza por un radio de curvatura $\rho$ constante e igual al radio de la circunferencia de la trayectoria. La aceleración normal siempre va a estar dirigida hacia el centro O de la circunferencia trayectoria, por lo que también la llamaremos *aceleración centrípeta*.
+
+Tomando el plano de la trayectoria como plano de referencia y fijando el origen en el centro de la circunferencia, el vector posición tendrá por móduclo el radio de esta, por lo que también se la llamará *radio vector*.
+
+Hay dos posibilidades para referirse al movimiento: mediante el uso de coordenadas cartesianas, como en los movimientos rectilíneos, o mediante el uso de coordenadas polares. Por comodidad utilizaremos las coordenadas polares de ahora en adelante. Por tanto, la posición del móvil en un momento dado vendrá dada por el ángulo $theta$.
+
+Se define *velocidad angular media* como el cociente:
+
+$$
+\omega_m = \frac{\Delta \theta}{\Delta{t}}
+$$ {#eq-omegam}
+
+Se expresa en $rad/s$ y representa el promedio de variación del ángulo barrido por el radio vector en un tiempo determinado. Para el cálculo de la *velocidad angular instantánea*, consideraremos el siguiente límite:
+
+$$
+\omega = \lim_{\Delta{t} \to 0} \frac{\Delta{\theta}}{\Delta{t}} = \frac{d\theta}{dt}
+$$ {#eq-omega}
+
+Sus unidades en el S.I. son $rad/s^2$ y su ecuación dimensional es $[\omega] = [T]^{-1}$.
+
+Existe una correlación entre el arco recorrido y el ángulo (en radianes) barrido por el radio vector: $\Delta{s} = \rho \cdot \Delta{\theta}$. Por tanto:
+
+$$
+v = \frac{ds}{dt} = \rho\cdot\frac{d\theta}{dt} = \rho\cdot\omega
+$$
+
+La velocidad angular se puede expresar en forma vectorial como un vector de módulo $\omega$ con una dirección perpendicular al plano de la trayectoria y sentido el del avance de un sacacorchos que gire en el mismo sentido del movimiento (regla de Maxwell). De esto se deduce que:
+
+$$
+\vec{v} = \vec{\omega}\times\vec{r}
+$$
+
+Análogamente a los casos rectilíneos, la *aceleración angular media* será:
+
+$$
+\alpha_m = \frac{\Delta\omega}{\Delta{t}}
+$$ {#eq-acanmed}
+
+Y la instantánea:
+
+$$
+\alpha = \lim_{\Delta{t} \to 0} \frac{\Delta\omega}{\Delta{t}} = \frac{d\omega}{dt}=\frac{d^2\theta}{dt^2}
+$$ {#eq-acanin}
+
+Ambas se expresarán en $rad/s^2$ y su ecuación dimensional será $[a] = [T]^{-2}$.
+
+Se dan las siguientes relaciones entre magnitudes lineales y angulares:
+
+$$
+a_t = \frac{dv}{dt} = \frac{d(\omega\cdot\rho)}{dt} = \rho\cdot\frac{d\omega}{dt} = \rho\cdot\alpha
+$$ {#eq-atconangular}
+
+$$
+a_n = \frac{v^2}{\rho} = \frac{\omega^2\rho^2}{\rho} = \omega^2\cdot\rho
+$$
+
+$$
+\vec{a} = \frac{d\vec{v}}{dt} = \frac{d(\vec{\omega}\times\vec{r})}{dt} = \vec{\omega}\times \frac{d\vec{r}}{dt} + \frac{d\vec{\omega}}{dt}\times \vec{r}
+$$
+
+$$
+\vec{a} = \vec{\omega}\times \vec{v} + \vec{\alpha}\times\vec{r}
+$$
+
+$$
+a = a_n + a_t \hspace{1cm} a_t=\alpha\times r \text{ y } a_n = \omega\times r
+$$
+
+El primer sumando es un vector dirigido hacia el centro: **aceleración normal**. El segundo es perpendicular al plano de $\alpha$ y de $r$, por lo que tiene la misma dirección que $v$: **aceleración tangencial**.
+
+#### Movimiento circular uniforme (MCU)
+
+En este movimiento, $a_n = cte$, $\alpha = 0 rad/s^2$ y $a_t = 0$. Dado que $\omega = cte$, la ecuación del movimiento será:
+
+$$
+\theta = \theta_0 + \omega\Delta{t} \rightarrow (t_0=0) \rightarrow \theta = \theta_0 +\omega t
+$$
+
+Dado que la velocidad angular es constante, el movimiento será periódico, recorriendo $2\pi rad$ en un tiempo determinado llamado periodo, tal que:
+
+$$
+T = \frac{2\pi}{\omega} \rightarrow \omega = \frac{2\pi}{T}
+$$
+
+La frecuencia será el inverso del periodo: $\nu = T^{-1}$, representando las revoluciones por unidad de segundo. Sus unidades en el S.I. son $s^{-1} = ciclo/s = 1Hz$, aunque también es común utilizar las revoluciones por minuto ($r.p.m.$).
+
+#### Movimiento circular uniformemente acelerado (MCUA)
+
+También de forma análoga al rectilíneo, $a_n = cte$, $a_t = cte$, $\alpha = cte$. Por tanto:
+
+$$
+\omega = \omega_0 + \alpha t
+$$
+
+$$
+\theta = \theta_0 + \omega_0(t-t_0) + \frac{1}{2}\alpha(t-t_0)^2 \rightarrow (t_0 = 0) \rightarrow \theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
+$$
+
+Juntando las dos obtenemos que:
+
+$$
+\omega^2 - \omega_0^2 = 2\alpha(\theta - \theta_0)
+$$
+
+### Movimiento armónico simple (M.A.S.)
+
+En los movimientos armónicos simples, la aceleración siempre es proporcional al desplazamiento del cuerpo pero con signo opuesto. Según la *Segunda Ley de Newton*:
+
+$$
+-kx = ma
+$$
+
+Como hemos visto anteriormente en los movimientos rectilíneos, $a=\frac{d^2x}{dt^2}$, por lo que:
+
+$$
+\frac{d^2x}{dt^2} = -\frac{k}{m}x
+$$
+
+Resolviendo esta ecuación diferencial obtenemos que:
+
+$$
+x = A\sin(\omega t + \delta)
+$$ {#eq-mas}
+
+ $\omega t + \delta$ se le denomina *fase* y a $\delta$ **constante de fase** o **corrección de fase**. La constante de fase corresponde con la fase cuando $t=0$. Hay que tener en cuenta también que $\cos(\omega t + \delta) = \sin(\omega t + \delta + \pi/2)$, por lo que el uso del coseno o el seno se puede elegir a conveniencia. Es necesario definir una serie de términos:
+
+ - **Elongación**: distancia entre el punto P donde se encuentra el móvil y el centro del equilibrio O. Es la distancia $x$
+ - **Amplitud**: es la elongación máxima, la distancia $A$, contada a partir de O.
+ - **Periodo**: el tiempo que tarda el móvil  en realizar una oscilación completa, es decir, entre que se encuentra en una fase determinada y vuelve a esa misma fase. Se representa con la letra T.
+ - **Frecuencia**: número de oscilaciones que realiza el cuerpo en un segundo. Es el inverso del periodo.
+
+La velocidad del cuerpo quedará definida como:
+
+$$
+|\vec{v}| = \frac{dx}{dt} = A\cdot\omega\cos(\omega t + \delta)
+$$ {#eq-velmas}
+
+Por consiguiente, su aceleración será:
+
+$$
+a = \frac{dv}{dt} = -A\cdot\omega^2\sin(\omega t + \delta)
+$$ {#eq-acmas}
+
+$$
+a = \frac{-kx}{m} = -\omega^2 x \rightarrow \omega = \sqrt{\frac{k}{m}}
+$$
+
+```{python}
+#| label: fig-mas
+#| fig-cap: "gráficas M.A.S."
+
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+t = np.arange(0, 5, 0.01)
+A = 1
+omega = 1.5
+x = A * np.sin(omega * t)
+v = A * omega * np.cos(omega * t)
+a = A * (omega ** 2) * np.sin(omega * t)
+fig, (ax, av, aa) = plt.subplots(3, 1)
+fig.suptitle('Gráficas del M.A.S.')
+ax.plot(t, x)
+av.plot(t, v)
+aa.plot(t, a)
+ax.set(xlabel='t', ylabel='x')
+av.set(xlabel='t', ylabel='v')
+aa.set(xlabel='t', ylabel='a')
+```
 
 ## Métodos para el estudio experimental del movimiento 
+
+### Movimiento rectilíneo uniforme
+
+Para poder observar el MRU disponemos de un cochecito arrastrado en un carril por un motor eléctrico mediante un hilo que se va recogiendo en una rueda adosada al eje del motor. En el carril se señalizan diferentes distancias.
+
+Procederemos de la siguiente forma:
+
+* Aflojamos la rueda y llevamos el coche al punto de origen y volvemos a apretarla.
+
+* Cronometramos el tiempo empleado por el coche para ir desde el origen a la última marca de distancia. A medida que el coche vaya pasando por las marcas de distancia vamos recogiendo el tiempo transcurrido.
+
+* Repetimos el paso anterior 5 veces.
+
+
+Calculamos la media de tiempo empleado para alcanzar cada marca y con ello calculamos la velocidad en cada caso. Con ello, comprobaremos que las velocidades coinciden y se trata de un MRU.
+
+También puede representarse de varias formas:
+
+* Mediante una gráfica que represente las velocidades en función del tiempo.
+* Representando la posición frente al tiempo, calculando la velocidad como la pendiente de la recta resultante.
+
+### Movimiento uniformemente acelerado (MRUA)
+
+Realizaremos un experimento igual que el anterior, pero con un plano inclinado y dejando caer una bola de acero. Registraremos el tiempo transcurrido en llegar hasta cada marca y obtendremos la velocidad en cada tramo. Con cada par de velocidades y las marcas de tiempo registradas, podremos calcular la aceleración. Veremos que las aceleraciones obtenidas son similares, dando la idea de un MRUA.
+
+También podemos realizar las siguientes representaciones:
+
+* Velocidad en función del tiempo, cuya pendiente de la recta resultante es la aceleración.
+* Posicion en función del tiempo, de tal forma que la pendiente en cada punto coincidirá con la velocidad instantánea.
+
+### Tiro horizontal y parabólico
+
+Para este experimento necesitaremos:
+* 1 soporte y pinza
+* 1 carril de deslizamiento
+* 1 bola de acero
+* 1 pie de soporte
+* 1 hoja de papel carbón
+* 1 hoja de papel milimetrado
+* 1 esponja amortiguadora
+* 1 pie de rey
+
+![Diagrama](./../img/horizpara.png)
+
+En el punto O, el móvil tiene una velocidad de componentes:
+
+$$
+v_{0x} = v_0\cdot\cos\alpha
+$$
+$$
+v_{0y} = v_0\cdot\sin\alpha
+$$
+
+El movimiento según el eje XX' es MRU y en el eje YY' es MRUA:
+
+$$
+x = v_0t\cos\alpha
+$$
+$$
+y = v_0t\sin\alpha + \frac{1}{2}gt^2
+$$
+
+$$
+y = x\cdot\tan\alpha + \frac{g}{2v_0^2\cos^2\alpha}x^2 \rightarrow y = ax^2 + bx
+$$
+
+$$
+a=\frac{g}{2v_0^2\cos^2\alpha} \text{ y } b=\tan\alpha
+$$
+
+Procedimiento:
+
+* Colocamos la banda de papel milimetrado sobre el soporte vertical, sujetándola con papel adhesivo.
+* Marcamos sobre dicho papel una línea horizontal que coincida con el centro de la bola en el extremo más bajo del carril de lanzamiento.
+* Separamos de 2 en 2 cm el soporte vertical y dejamos caer la bola a lo largo del carril, de forma que al abandonarlo describa una curva en el aire.
+
+Para registrar el impacto sobre el papel milimetrado, ponemos delante el papel carbón.
+
+Repetimos el lanzamiento 3 veces para cada valor de x, tomando la media aritmética.
+
+* Medimos el ángulo $\alpha$. Para ello hallamos x e y para un punto cualquiera.
+* Medimos también la altura h desde la que se ha lanzado la bola
+
+
+
+Con los datos representamos la gráfica de la trayectoria.
+
+Un laboratorio virtual que proporciona materiales para el estudio práctico del movimiento de los cuerpos se puede encontrar en:
+
+<https://ophysics.com/k8.html>
+
+<https://ophysics.com/k9.html>
+
+<https://ophysics.com/k10.html>
+
+## Conclusión
+
+En este tema hemos estudiado el movimiento de los cuerpos caracterizándolos por sus parámetros significativos: posición, velocidad y aceleración.
+
+Hemos referido la aceleración al triedro intrínseco y con base a la expresión resultante hemos realizado el estudio exhaustivo de los movimientos. Esto ha dado lugar a su clasificación atendiendo al valor de sus componentes intrínsecas.
+
+También hemos desarrollado el estudio de un movimiento singular como es el movimiento armónico simple.
+
+## Bibliografía
+
+TIPLER, P. A. y MOSCA, G. (2006): *Física*. Barcelona: Reverté.
+Una buena presentación de los temas con muchos ejemplos de aplicación resueltos y una colección amplia de problemas catalogados en función de su dificultad.
+
+**añadir Serway Jewlett y animaciones del phet y ophysics**
